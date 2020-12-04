@@ -19,7 +19,7 @@
         firefox.enable = true;
       };
       gaming = {
-        steam.enable = true;
+        steam.enable = false;
         # emulators.enable = true;
         # emulators.psx.enable = true;
       };
@@ -29,7 +29,7 @@
         graphics.enable = true;
         mpv.enable = true;
         recording.enable = true;
-        spotify.enable = true;
+        spotify.enable = false;
       };
       term = {
         default = "xst";
@@ -46,10 +46,10 @@
     };
     hardware = {
       audio.enable = true;
-      ergodox.enable = true;
+      ergodox.enable = false;
       fs = {
-        enable = true;
-        zfs.enable = true;
+        enable = false;
+        zfs.enable = false;
         ssd.enable = true;
       };
       nvidia.enable = true;

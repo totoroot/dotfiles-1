@@ -1,0 +1,32 @@
+#+TITLE: Purple
+#+DATE:  2020-12-04
+
+* Overview
+
+* Specs
+| CPU   | AMD FX-6300 6-Core 3,5GHz (overclocked) |
+| MOBO  | ASUS AM3+ M5A97 R2.0 |
+| COOL  | Noctua AM3 Cooler + Noctua Fans |
+| GPU   | Palit GeForce GTX 970 JetStream 4GB |
+| RAM   | 8GB DDR3 1333MHz Mushkin Essentials (4x) |
+| SSD   | 180GB Corsair Force GS SSD |
+| SSD   | 1TB SanDisk Plus SSD |
+| HDD   | Seagate HDD (1x) |
+| KBD   | DREVO Calibur 60% |
+| MOUSE | Anker Wireless Vertical Mouse 2,4GHz |
+
+* Installation
+** Set up root file system
+#+BEGIN_SRC sh
+# SanDisk Plus
+parted /dev/sda -- mklabel gpt
+parted /dev/sda -- mkpart primary 1GB 175GB
+parted /dev/sda -- mkpart 175GBB 100%
+parted /dev/sda -- mkpart primary linux-swap -24GB 100%
+parted /dev/sda -- mkpart ESP fat32 1MB 1GB
+parted /dev/sda -- set 4 esp on
+
+mkfs.fat -F32 -n BOOT /dev/nvme0n1p1
+mkfs.ext4 -L nixos /dev/sda1
+mkfs.ext4 -L home /dev/sda2
+#+END_SRC
