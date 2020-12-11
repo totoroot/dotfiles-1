@@ -29,6 +29,7 @@ parted /dev/sdb -- set 4 esp on
 mkfs.fat -F 32 -n boot /dev/sdb4
 mkfs.ext4 -L nixos /dev/sdb1
 mkfs.ext4 -L home /dev/sdb2
+mkswap -L swap /dev/sdb3
 #+END_SRC
 
 ** Mount drives

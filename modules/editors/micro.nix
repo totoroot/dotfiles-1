@@ -2,15 +2,18 @@
 
 with lib;
 with lib.my;
-let cfg = config.modules.desktop.apps.unity3d;
+let cfg = config.modules.editors.micro;
 in {
-  options.modules.desktop.apps.unity3d = {
+  options.modules.editors.micro = {
     enable = mkBoolOpt false;
   };
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
-      unity3d
+      micro
     ];
+    environment.shellAliases = {
+      m = "micro";
+    };
   };
 }

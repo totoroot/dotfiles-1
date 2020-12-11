@@ -50,11 +50,11 @@
 
 
 !! general
-scratch.font: Fira Code:pixelsize=16
+scratch.font: Fira Code:pixelsize=28
 
 
 !! xst
-st.font: Fira Code:pixelsize=12
+st.font: Fira Code:pixelsize=24
 
 
 !! urxvt
